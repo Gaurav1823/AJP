@@ -5,12 +5,11 @@ public static void main(String[] args){
 
 Scanner sc = new Scanner(System.in);
 
-String user[] = new String[6];
-user[0] = {"gaurav"};
-user[1] = {"sahil"};
-String pass[] = new String[6];
-pass[0] = {"singh"};
-pass[1] = {"kaushik"};
+String user[] = {"gaurav","sahil","","","",""};
+
+String pass[] = {"singh","kaushik","","","",""};
+
+
 
 
 System.out.println("Hello, Welcome! \nEnter 'continue' to proceed or 'quit' to exit the application");
@@ -53,7 +52,7 @@ String confirmPassword = sc.next();
 if(password.equals(confirmPassword)){System.out.println("Signup Successful");
 
 for(int i=0; i<user.length; i++){
-if (user[i].isempty()){
+if (user[i].isEmpty()){
 user[i] = username;
 pass[i] = password;
 break;
