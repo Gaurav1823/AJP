@@ -1,12 +1,7 @@
 import java.util.Scanner;
-import java.util.Arrays;
-class Employee_Management_System{
-public static void main(String[] args){
+import java.util.ArrayList;
 
-Scanner sc = new Scanner(System.in);
-
-String user[] = {"gaurav","sahil","","","",""};
-String pass[] = {"singh","kaushik","","","",""};
+class Employee {
 String id, name, department;
 double salary;
 int attendance;
@@ -18,7 +13,6 @@ this.department = department;
 this.salary = salary;
 this.attendance = 0;
 }
-
 void updateDetails(String department, double salary) {
 this.department = department;
 this.salary = salary;
@@ -33,8 +27,17 @@ public String toString() {
 return String.format("ID: %s | Name: %s | Dept: %s | Salary: %.2f | Attendance: %d",
 id, name, department, salary, attendance);
 }
+}
 
-static ArrayList<Employee> employees = new ArrayList<>();
+
+class Employee_Management_System{
+public static void main(String[] args){
+
+Scanner sc = new Scanner(System.in);
+ArrayList<Employee> employees = new ArrayList<>();
+
+String user[] = {"gaurav","sahil","","","",""};
+String pass[] = {"singh","kaushik","","","",""};
 
 System.out.println("Hello, Welcome to Employee Management System \nEnter 'continue' to proceed or 'quit' to exit the application");
 
@@ -61,6 +64,7 @@ break;
 }
 
 if(loggedIn){System.out.println("login Successful.");
+
 
 while (true) {
 System.out.println("\nEmployee Management System");
@@ -92,94 +96,9 @@ return;
 default -> System.out.println("Invalid choice. Try again.");
 }
 }
-}
-static void addEmployee() {
-System.out.print("Enter Employee ID: ");
-String id = sc.nextLine();
-System.out.print("Enter Name: ");
-String name = sc.nextLine();
-System.out.print("Enter Department: ");
-String department = sc.nextLine();
-System.out.print("Enter Salary: ");
-double salary = sc.nextDouble();
-        
-employees.add(new Employee(id, name, department, salary));
-System.out.println("Employee added successfully.");
-}
-static void searchEmployee() {
-System.out.print("Enter Employee ID: ");
-String id = sc.nextLine();
-for (Employee emp : employees) {
-if (emp.id.equals(id)) {
-System.out.println(emp);
-return;
-}
-}
-System.out.println("Employee not found.");
-}
-
-static void updateEmployee() {
-System.out.print("Enter Employee ID: ");
-String id = sc.nextLine();
-for (Employee emp : employees) {
-if (emp.id.equals(id)) {
-System.out.print("Enter New Department: ");
-String department = sc.nextLine();
-System.out.print("Enter New Salary: ");
-double salary = sc.nextDouble();
-emp.updateDetails(department, salary);
-System.out.println("Employee details updated.");
-return;
-}
-}
-System.out.println("Employee not found.");
-}
-
-static void deleteEmployee() {
-System.out.print("Enter Employee ID: ");
-String id = sc.nextLine();
-employees.removeIf(emp -> emp.id.equals(id));
-System.out.println("Employee deleted.");
-}
-
-static void listEmployees() {
-if (employees.isEmpty()) {
-System.out.println("No employees found.");
-return;
-}
-for (Employee emp : employees) {
-System.out.println(emp);
-}
-}
-
-static void markAttendance() {
-System.out.print("Enter Employee ID: ");
-String id = sc.nextLine();
-for (Employee emp : employees) {
-if (emp.id.equals(id)) {
-emp.markAttendance();
-System.out.println("Attendance marked.");
-return;
-}
-}
-System.out.println("Employee not found.");
-}
-
-static void filterByDepartment() {
-System.out.print("Enter Department: ");
-String dept = sc.nextLine();
-for (Employee emp : employees) {
-if (emp.department.equalsIgnoreCase(dept)) {
-System.out.println(emp);
-}
-}
-}
-}
-
 
 }else{System.out.println("Invalid credentials. Please try again");
 }
-
 
 } else if(b==2){
 System.out.println("Enter new username");
@@ -224,4 +143,8 @@ feedback = sc.nextInt();
 System.out.println("Thank you");
 sc.close();
 }
+
+
+
+
 }
