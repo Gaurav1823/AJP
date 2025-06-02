@@ -62,7 +62,6 @@ break;
 
 if(loggedIn){System.out.println("login Successful.");
 
-/*
 while (true) {
 System.out.println("\nEmployee Management System");
 System.out.println("1. Add Employee");
@@ -177,7 +176,6 @@ System.out.println(emp);
 }
 }
 
-*/
 
 }else{System.out.println("Invalid credentials. Please try again");
 }
