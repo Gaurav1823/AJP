@@ -143,8 +143,85 @@ feedback = sc.nextInt();
 System.out.println("Thank you");
 sc.close();
 }
+static void addEmployee() {
+System.out.print("Enter Employee ID: ");
+String id = sc.nextLine();
+System.out.print("Enter Name: ");
+String name = sc.nextLine();
+System.out.print("Enter Department: ");
+String department = sc.nextLine();
+System.out.print("Enter Salary: ");
+double salary = sc.nextDouble();
+        
+employees.add(new Employee(id, name, department, salary));
+System.out.println("Employee added successfully.");
+}
+static void searchEmployee() {
+System.out.print("Enter Employee ID: ");
+String id = sc.nextLine();
+for (Employee emp : employees) {
+if (emp.id.equals(id)) {
+System.out.println(emp);
+return;
+}
+}
+System.out.println("Employee not found.");
+}
 
+static void updateEmployee(ArrayList<Employee> employees, Scanner sc) {
+System.out.print("Enter Employee ID: ");
+String id = sc.nextLine();
+for (Employee emp : employees) {
+if (emp.id.equals(id)) {
+System.out.print("Enter New Department: ");
+String department = sc.nextLine();
+System.out.print("Enter New Salary: ");
+double salary = sc.nextDouble();
+emp.updateDetails(department, salary);
+System.out.println("Employee details updated.");
+return;
+}
+}
+System.out.println("Employee not found.");
+}
 
+static void deleteEmployee(ArrayList<Employee> employees, Scanner sc) {
+System.out.print("Enter Employee ID: ");
+String id = sc.nextLine();
+employees.removeIf(emp -> emp.id.equals(id));
+System.out.println("Employee deleted.");
+}
 
+static void listEmployees(ArrayList<Employee> employees, Scanner sc) {
+if (employees.isEmpty()) {
+System.out.println("No employees found.");
+return;
+}
+for (Employee emp : employees) {
+System.out.println(emp);
+}
+}
 
+static void markAttendance(ArrayList<Employee> employees, Scanner sc) {
+System.out.print("Enter Employee ID: ");
+String id = sc.nextLine();
+for (Employee emp : employees) {
+if (emp.id.equals(id)) {
+emp.markAttendance();
+System.out.println("Attendance marked.");
+return;
+}
+}
+System.out.println("Employee not found.");
+}
+
+static void filterByDepartment(ArrayList<Employee> employees, Scanner sc) {
+System.out.print("Enter Department: ");
+String dept = sc.nextLine();
+for (Employee emp : employees) {
+if (emp.department.equalsIgnoreCase(dept)) {
+System.out.println(emp);
+}
+}
+}
 }
