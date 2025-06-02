@@ -31,10 +31,11 @@ id, name, department, salary, attendance);
 
 
 class Employee_Management_System{
-public static void main(String[] args){
 
-Scanner sc = new Scanner(System.in);
-ArrayList<Employee> employees = new ArrayList<>();
+static Scanner sc = new Scanner(System.in);
+static ArrayList<Employee> employees = new ArrayList<>();
+
+public static void main(String[] args){
 
 String user[] = {"gaurav","sahil","","","",""};
 String pass[] = {"singh","kaushik","","","",""};
@@ -90,7 +91,8 @@ case 5 -> listEmployees();
 case 6 -> markAttendance();
 case 7 -> filterByDepartment();
 case 8 -> {
-System.out.println("Exiting program...");
+feedbackForm();
+System.out.println("Exiting Application...");
 return;
 }
 default -> System.out.println("Invalid choice. Try again.");
@@ -132,8 +134,13 @@ System.out.println("Invalid Input");
 
 System.out.println("Enter 'continue' to proceed or 'quit' to exit the application");
 a = sc.next();
+sc.nextLine();
 }
- 
+feedbackForm();
+sc.close();
+}
+
+static void feedbackForm(){
 System.out.println("Thank you for using the Application \n Please Provide feedback of application on a scale of 1 to 5");
 int feedback = sc.nextInt();
 
@@ -141,8 +148,8 @@ while (feedback<1 || feedback>5){System.out.println("Invalid Input\nEnter betwee
 feedback = sc.nextInt();
 }
 System.out.println("Thank you");
-sc.close();
 }
+
 static void addEmployee() {
 System.out.print("Enter Employee ID: ");
 String id = sc.nextLine();
@@ -156,6 +163,7 @@ double salary = sc.nextDouble();
 employees.add(new Employee(id, name, department, salary));
 System.out.println("Employee added successfully.");
 }
+
 static void searchEmployee() {
 System.out.print("Enter Employee ID: ");
 String id = sc.nextLine();
@@ -168,7 +176,7 @@ return;
 System.out.println("Employee not found.");
 }
 
-static void updateEmployee(ArrayList<Employee> employees, Scanner sc) {
+static void updateEmployee() {
 System.out.print("Enter Employee ID: ");
 String id = sc.nextLine();
 for (Employee emp : employees) {
@@ -185,14 +193,14 @@ return;
 System.out.println("Employee not found.");
 }
 
-static void deleteEmployee(ArrayList<Employee> employees, Scanner sc) {
+static void deleteEmployee() {
 System.out.print("Enter Employee ID: ");
 String id = sc.nextLine();
 employees.removeIf(emp -> emp.id.equals(id));
 System.out.println("Employee deleted.");
 }
 
-static void listEmployees(ArrayList<Employee> employees, Scanner sc) {
+static void listEmployees() {
 if (employees.isEmpty()) {
 System.out.println("No employees found.");
 return;
@@ -202,7 +210,7 @@ System.out.println(emp);
 }
 }
 
-static void markAttendance(ArrayList<Employee> employees, Scanner sc) {
+static void markAttendance() {
 System.out.print("Enter Employee ID: ");
 String id = sc.nextLine();
 for (Employee emp : employees) {
@@ -215,7 +223,7 @@ return;
 System.out.println("Employee not found.");
 }
 
-static void filterByDepartment(ArrayList<Employee> employees, Scanner sc) {
+static void filterByDepartment() {
 System.out.print("Enter Department: ");
 String dept = sc.nextLine();
 for (Employee emp : employees) {
