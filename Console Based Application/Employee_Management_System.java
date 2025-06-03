@@ -226,6 +226,7 @@ System.out.println("Employee not found.");
 static void filterByDepartment() {
 System.out.print("Enter Department: ");
 String dept = sc.nextLine();
+            
 for (Employee emp : employees) {
 if (emp.department.equalsIgnoreCase(dept)) {
 System.out.println(emp);
