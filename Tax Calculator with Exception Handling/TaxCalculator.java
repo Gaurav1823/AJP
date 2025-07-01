@@ -15,7 +15,7 @@ public class TaxCalculator {
             }
 
             double tax = calculateTax(income);
-            System.out.printf("Calculated tax: Rupees%.2f%n", tax);
+            System.out.printf("Calculated tax: %.2f%n Rupees", tax);
 
         } catch (NumberFormatException e) {
             System.out.println("Invalid input. Please enter a numeric value.");
