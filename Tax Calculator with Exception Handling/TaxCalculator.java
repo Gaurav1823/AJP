@@ -7,7 +7,7 @@ public class TaxCalculator {
 
         try {
   
-            System.out.print("Enter your annual income (in ₹): ");  // Input salary
+            System.out.print("Enter your annual income (in Rupees): ");  // Input salary
             double income = Double.parseDouble(scanner.nextLine());
 
             if (income < 0) {
@@ -15,7 +15,7 @@ public class TaxCalculator {
             }
 
             double tax = calculateTax(income);
-            System.out.printf("Calculated tax: ₹%.2f%n", tax);
+            System.out.printf("Calculated tax: Rupees%.2f%n", tax);
 
         } catch (NumberFormatException e) {
             System.out.println("Invalid input. Please enter a numeric value.");
