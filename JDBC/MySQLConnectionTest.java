@@ -8,7 +8,7 @@ public class MySQLConnectionTest {
 	public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/myjavadb";
         String user = "root"; // your MySQL username
-        String password = "@Sulipsa4ever"; // your MySQL password
+        String password = "@Calculator"; // your MySQL password
 
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
