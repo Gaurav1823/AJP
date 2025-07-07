@@ -8,7 +8,7 @@ public class CreateEmployeeTable {
     public static void main(String[] args) {
     	String url = "jdbc:mysql://localhost:3306/myjavadb";
         String user = "root";
-        String password = "@Sulipsa4ever";
+        String password = "@Calculator";
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              Statement stmt = conn.createStatement()) {
